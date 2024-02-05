@@ -1,0 +1,30 @@
+Project Architecture
+This project is designed to scrape content from a specified website URL and utilize the scraped data to answer user queries about the website content. 
+The project is divided into two main tasks:
+
+Task 1: Data Scraping and Storage Agent
+This task involves scraping content from a specified website URL and saving it in a structured format. The agent uses the requests and BeautifulSoup libraries 
+to send a GET request to the specified URL and parse the HTML content of the webpage. The raw text content is then saved in a JSON file.
+
+The steps involved in this task are:
+
+Validate and modify the URL if necessary.
+Send a GET request to the URL and parse the HTML content.
+Extract the domain name from the URL and define the file name using the domain name.
+Save the raw text content in a JSON file.
+
+
+Task 2: Query Answering Agent
+This task involves utilizing the scraped data to answer user queries about the website content. The agent uses the SentenceTransformerEmbeddings, Chroma, OpenAI, and 
+RetrievalQA libraries to load the scraped data, split the text into chunks, create embeddings, persist the embeddings in a database, load the OpenAI model, and run the 
+query answering chain.
+
+The steps involved in this task are:
+
+Load the scraped data using the TextLoader library.
+Split the text into chunks using the CharacterTextSplitter library.
+Create embeddings using the SentenceTransformerEmbeddings library.
+Persist the embeddings in a database using the Chroma library.
+Load the OpenAI model using the OpenAI library.
+Run the query answering chain using the RetrievalQA library.
+The user can interact with the Query Answering Agent by entering their question, and the agent will return the answer based on the scraped data.
